@@ -1,0 +1,12 @@
+Django>=4.2
+gunicorn
+whitenoise
+
+apscheduler
+langchain
+openai
+supabase
+
+psycopg2-binary      # Needed if Railway uses PostgreSQL
+python-dotenv        # For loading API keys
+requests
