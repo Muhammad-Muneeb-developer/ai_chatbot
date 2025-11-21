@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover Supabase Tables</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 40px;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .info-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 6px;
+        }
+        .step {
+            background: #f8f9fa;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        .step h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        code {
+            background: #333;
+            color: #0f0;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            display: inline-block;
+            margin: 5px 0;
+        }
+        .screenshot {
+            background: #e9ecef;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 10px 0;
+            text-align: center;
+            font-style: italic;
+            color: #666;
+        }
+        .table-example {
+            background: white;
+            border: 2px solid #667eea;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 10px 0;
+        }
+        .back-btn {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            margin: 20px 0;
+        }
+        .back-btn:hover {
+            background: #5568d3;
+        }
+        ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        li {
+            margin: 8px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 How to Find Your Supabase Tables</h1>
+        
+        <div class="info-box">
+            <strong>⚠️ Table Not Found?</strong><br>
+            The error means the table doesn't exist in your Supabase database. Follow the steps below to find your actual table names.
+        </div>
+
+        <div class="step">
+            <h3>Method 1: Check Supabase Dashboard</h3>
+            <ol>
+                <li>Go to <a href="https://supabase.com/dashboard" target="_blank">https://supabase.com/dashboard</a></li>
+                <li>Select your project: <code>vezcuphumowgfyqobnvv</code></li>
+                <li>Click on <strong>"Table Editor"</strong> in the left sidebar</li>
+                <li>You'll see all your tables listed there</li>
+            </ol>
+            <div class="screenshot">
+                📸 You should see tables like: profiles, messages, items, etc.
+            </div>
+        </div>
+
+        <div class="step">
+            <h3>Method 2: Check SQL Editor</h3>
+            <ol>
+                <li>In Supabase Dashboard, click <strong>"SQL Editor"</strong></li>
+                <li>Run this query:</li>
+            </ol>
+            <div class="table-example">
+                <code style="display: block; background: #282c34; color: #abb2bf; padding: 15px; border-radius: 4px;">
+SELECT table_name<br>
+FROM information_schema.tables<br>
+WHERE table_schema = 'public'<br>
+AND table_type = 'BASE TABLE'<br>
+ORDER BY table_name;
+                </code>
+            </div>
+            <p style="margin-top: 10px;">This will show all your table names.</p>
+        </div>
+
+        <div class="step">
+            <h3>Method 3: Common Table Names to Try</h3>
+            <p>If you just created your Supabase project, try these common names:</p>
+            <ul>
+                <li><code>profiles</code> - User profiles</li>
+                <li><code>todos</code> - Todo items</li>
+                <li><code>messages</code> - Messages/chat</li>
+                <li><code>items</code> - Generic items</li>
+                <li><code>posts</code> - Blog posts</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <h3>Method 4: Create a Test Table</h3>
+            <p>If you don't have any tables yet, create one in Supabase:</p>
+            <ol>
+                <li>Go to <strong>Table Editor</strong></li>
+                <li>Click <strong>"Create a new table"</strong></li>
+                <li>Name it: <code>test_table</code></li>
+                <li>Add some columns (id, name, created_at)</li>
+                <li>Save and insert some test data</li>
+                <li>Then access it at: <code>http://localhost:8000/data/test_table/</code></li>
+            </ol>
+        </div>
+
+        <div class="info-box" style="background: #d1ecf1; border-left-color: #0c5460;">
+            <strong>💡 Once you find your table name:</strong><br>
+            Go to: <code>http://localhost:8000/data/YOUR_TABLE_NAME/</code><br>
+            Replace <code>YOUR_TABLE_NAME</code> with your actual table name.
+        </div>
+
+        <a href="/" class="back-btn">← Back to Home</a>
+    </div>
+</body>
+</html>

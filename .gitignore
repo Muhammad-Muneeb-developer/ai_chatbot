@@ -1,0 +1,19 @@
+# Django
+__pycache__/
+*.pyc
+*.sqlite3
+
+# Environment
+.env
+venv/
+env/
+
+# Secrets
+*.key
+*.pem
+
+# Static
+staticfiles/
+
+# macOS
+.DS_Store

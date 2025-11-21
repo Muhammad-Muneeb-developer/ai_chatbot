@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supabase Tables</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 2.5em;
+        }
+        .info {
+            background: #f0f4ff;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+        }
+        .example-tables {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .example-tables h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        .table-link {
+            display: block;
+            padding: 12px;
+            margin: 8px 0;
+            background: white;
+            border: 2px solid #667eea;
+            border-radius: 6px;
+            color: #667eea;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        .table-link:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+        .instructions {
+            background: #fff9e6;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+        }
+        .instructions code {
+            background: #333;
+            color: #0f0;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        .api-link {
+            display: block;
+            margin-top: 10px;
+            color: #667eea;
+            text-decoration: none;
+        }
+        .api-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 Supabase Database</h1>
+        
+        <div class="info">
+            <strong>🔒 Read-Only Mode</strong><br>
+            This interface connects to your Supabase database in read-only mode.
+        </div>
+
+        <div class="instructions">
+            <h3>📖 How to Access Your Tables:</h3>
+            <p>Navigate to: <code>/data/&lt;table_name&gt;/</code></p>
+            <p style="margin-top: 10px;">
+                <strong>Don't know your table names?</strong> 
+                <a href="/help/" style="color: #667eea; font-weight: 600;">Click here for help →</a>
+            </p>
+        </div>
+
+        <div class="example-tables">
+            <h3>🔍 Enter Your Table Name:</h3>
+            <form id="tableForm" style="margin: 20px 0;">
+                <input type="text" id="tableName" placeholder="Enter table name (e.g., users, products)" 
+                       style="width: 100%; padding: 12px; border: 2px solid #667eea; border-radius: 6px; font-size: 16px;">
+                <button type="submit" style="width: 100%; margin-top: 10px; padding: 12px; background: #667eea; color: white; border: none; border-radius: 6px; font-size: 16px; font-weight: 600; cursor: pointer;">
+                    View Table Data →
+                </button>
+            </form>
+            
+            <h3 style="margin-top: 30px;">Or Try Common Table Names:</h3>
+            <a href="/data/users/" class="table-link">👥 users</a>
+            <a href="/data/products/" class="table-link">🛍️ products</a>
+            <a href="/data/orders/" class="table-link">📦 orders</a>
+            <a href="/data/posts/" class="table-link">📝 posts</a>
+            <a href="/data/customers/" class="table-link">🤝 customers</a>
+        </div>
+        
+        <script>
+            document.getElementById('tableForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const tableName = document.getElementById('tableName').value.trim();
+                if (tableName) {
+                    window.location.href = '/data/' + tableName + '/';
+                }
+            });
+        </script>
+
+        <div class="info">
+            <strong>🔍 API Access:</strong><br>
+            Get JSON data: <code>/api/&lt;table_name&gt;/</code>
+            <a href="/api/users/" class="api-link" target="_blank">→ Try API endpoint (users)</a>
+        </div>
+
+        <div class="instructions">
+            <strong>💡 Tips:</strong>
+            <ul style="margin-left: 20px; margin-top: 10px;">
+                <li>Replace <code>&lt;table_name&gt;</code> with your actual table name</li>
+                <li>Use the search feature to filter data</li>
+                <li>All operations are read-only - your data is safe!</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
