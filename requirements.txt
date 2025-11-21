@@ -1,12 +1,10 @@
-Django>=4.2
+Django==4.3
 gunicorn
-whitenoise
-
 apscheduler
 langchain
 openai
 supabase
-
-psycopg2-binary      # Needed if Railway uses PostgreSQL
-python-dotenv        # For loading API keys
+python-dotenv
 requests
+psycopg2-binary
+reportlab
