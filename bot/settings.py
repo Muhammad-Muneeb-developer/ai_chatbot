@@ -84,8 +84,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 SUPABASE_URL = "https://vezcuphumowgfyqobnvv.supabase.co"     
 SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZlemN1cGh1bW93Z2Z5cW9ibnZ2Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc2MjY2NjYzOSwiZXhwIjoyMDc4MjQyNjM5fQ._RcFPshxVl-fMFZEtAdpKLrlCSC9oT8dJTt54dttjxA"
 
-OPENAI_API_KEY='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'
-
 
 
 LOGGING = {
